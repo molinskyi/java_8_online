@@ -1,0 +1,2 @@
+Main-Class: ua.com.level.Greeting
+Class-Path: ../../libs/commons-math3-3.6.1.jar
