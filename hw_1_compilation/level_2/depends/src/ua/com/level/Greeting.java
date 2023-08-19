@@ -3,6 +3,7 @@ import ua.com.level.test.Printer;
 import ua.com.level.depends.Depends;
 public class Greeting {
 
+
     public static void main(String[] args) {
         Printer p = new Printer();
         byte b = Byte.MAX_VALUE;
@@ -18,6 +19,7 @@ public class Greeting {
         p.print(String.valueOf(l));
         System.out.println();
         System.out.println(d.myAbs(-3));
+
     }
 
 }
