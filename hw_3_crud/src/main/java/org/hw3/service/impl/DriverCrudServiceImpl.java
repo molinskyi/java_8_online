@@ -6,9 +6,10 @@ import org.hw3.service.DriverCrudService;
 
 import java.io.IOException;
 
-public class DriverCrudServiceImpl implements DriverCrudService{
+public class DriverCrudServiceImpl implements DriverCrudService {
 
-    private DriverDb driverDb= new DriverDb();
+    private DriverDb driverDb = new DriverDb();
+
     @Override
     public void create(Driver driver) {
         driverDb.create(driver);

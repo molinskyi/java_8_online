@@ -1,6 +1,6 @@
 package org.hw3.entity;
 
-public class Driver extends BaseEntity{
+public class Driver extends BaseEntity {
     private String name;
     private String licenceCategory;
     private int age;

@@ -6,7 +6,8 @@ import org.hw3.entity.Driver;
 public class DriverService {
 
     private DriverDb driverDb = new DriverDb();
-    public void create(String name, String licenceCategory, int age){
+
+    public void create(String name, String licenceCategory, int age) {
         Driver driver = new Driver();
         driver.setAge(age);
         driver.setName(name);
@@ -14,7 +15,7 @@ public class DriverService {
         driverDb.create(driver);
     }
 
-    public Driver[] findAll(){
+    public Driver[] findAll() {
         return driverDb.findAll();
     }
 

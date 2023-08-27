@@ -25,7 +25,7 @@ public class DriverController {
     }
 
 
-    private void menu(){
+    private void menu() {
         System.out.println();
         System.out.println("Create 1");
         System.out.println("Find 2");
@@ -37,10 +37,17 @@ public class DriverController {
     private void crud(String position, BufferedReader bufferedReader) throws IOException {
         String id = "";
         switch (position) {
-            case ("1") : create(bufferedReader);break;
-            case ("2") : findAll();break;
-            case ("3") : System.exit(0);break;
-            case ("4") : System.out.println("Type id if you are going to update");
+            case ("1"):
+                create(bufferedReader);
+                break;
+            case ("2"):
+                findAll();
+                break;
+            case ("3"):
+                System.exit(0);
+                break;
+            case ("4"):
+                System.out.println("Type id if you are going to update");
                 id = String.valueOf(bufferedReader.readLine());
                 driverCrudService.findOne(id);
                 driverCrudService.update(id);
@@ -48,7 +55,8 @@ public class DriverController {
             case ("5"):
                 System.out.println("Type id if you are going to delete");
                 id = String.valueOf(bufferedReader.readLine());
-                driverCrudService.delete(id);break;
+                driverCrudService.delete(id);
+                break;
         }
     }
 
@@ -61,16 +69,16 @@ public class DriverController {
         System.out.println("Please enter age");
         int age = Integer.parseInt(reader.readLine());
         Driver driver = new Driver();
-        if(0 <= age && age <= 150){
+        if (0 <= age && age <= 150) {
             driver.setAge(age);
-        }else{
+        } else {
             System.out.println("Illegal age input");
             driver.setAge(0);
         }
 
-        if(!(n.equalsIgnoreCase("Idiot"))){
+        if (!(n.equalsIgnoreCase("Idiot"))) {
             driver.setName(n);
-        }else{
+        } else {
             driver.setName("");
             System.out.println("Illegal name input");
         }
