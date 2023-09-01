@@ -9,12 +9,10 @@ import java.util.Arrays;
 
 public class DriverDb {
 
-
     private Driver[] drivers = new Driver[1];
     private int lastDriverIndex = 0;
 
     public void create(Driver driver) {
-
         if (lastDriverIndex == drivers.length - 1) {
             Driver[] newStudents = new Driver[drivers.length * 2];
             System.arraycopy(drivers, 0, newStudents, 0, drivers.length);
@@ -26,7 +24,6 @@ public class DriverDb {
     }
 
     public void add(Driver driver) {
-
         driver.setId(String.valueOf(lastDriverIndex + 1));
         drivers[lastDriverIndex] = driver;
         lastDriverIndex++;
@@ -41,7 +38,7 @@ public class DriverDb {
         int k = 0;
         for (int i = 0; i < drivers.length; i++) {
             if (drivers[i] != null) {
-                if (drivers[i].getId() == id) {
+                if (drivers[i].getId().equals(id)) {
                     k = i;
                 }
             }
@@ -50,6 +47,8 @@ public class DriverDb {
     }
 
     public Driver update(String id) throws IOException {
+        // це потрібно робити в контроллері
+        // сюди має заходити вже готовий дрівер
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Please enter name");
         String n = reader.readLine();
