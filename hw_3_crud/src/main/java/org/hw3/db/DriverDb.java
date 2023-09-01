@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class DriverDb {
 
-    private Driver[] drivers = new Driver[1];
+    private Driver[] drivers = new Driver[1]; // чого так мало?)
     private int lastDriverIndex = 0;
 
     public void create(Driver driver) {
