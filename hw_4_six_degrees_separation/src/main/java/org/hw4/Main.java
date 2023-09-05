@@ -65,12 +65,21 @@ public class Main {
                     track = true;
                     break;
                 }
+
                 idPrev = idRun;
                 idRun = relates[idRun][0];
-                if (idPrev == relates[idRun][0]) {
+                if(relates[idRun].length == 0){
+                    idRun = idPrev;
+                }
+                if(i == 5){
+                    relates[idPrev] = Arrays.copyOfRange(relates[idPrev], 1, relates[idPrev].length);
+
+                }
+
+                if (relates[idRun].length != 0 && idPrev == relates[idRun][0]) {
                     relates[idRun] = Arrays.copyOfRange(relates[idRun], 1, relates[idRun].length);
                 }
-                relates[idPrev] = Arrays.copyOfRange(relates[idPrev], 1, relates[idPrev].length);
+
 
                 System.out.println("Sending to " + idRun);
             }
@@ -78,10 +87,10 @@ public class Main {
         if (track == false) {
             System.out.println("Stupid, try again");
             counter = counter + 1;
-            if (counter < 5) {
+            if (counter < 60) {
                 send(relates, idStart, idEnd);
             }
-            if (counter >= 5) {
+            if (counter >= 60) {
                 System.out.println("Can't do that");
             }
 
