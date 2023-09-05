@@ -45,19 +45,19 @@ public class Main {
             System.out.println("id = " + i);
         }
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Type start point");
+        System.out.println("Type start point (1-27)");
         int id1 = Integer.valueOf(bufferedReader.readLine());
-        System.out.println("Type end point");
+        System.out.println("Type end point (1-27)");
         int id2 = Integer.valueOf(bufferedReader.readLine());
         send(relates, id1, id2);
     }
 
     static int counter = 0;
-
+    static boolean track = false;
     private static void send(int relates[][], int idStart, int idEnd) {
         int idRun = idStart;
         int idPrev = 0;
-        boolean track = false;
+
         for (int i = 0; i < 6; i++) {
             if (relates[idRun].length != 0) {
                 if (idRun == idEnd) {
@@ -65,7 +65,6 @@ public class Main {
                     track = true;
                     break;
                 }
-
                 idPrev = idRun;
                 idRun = relates[idRun][0];
                 if(relates[idRun].length == 0){
@@ -87,13 +86,15 @@ public class Main {
         if (track == false) {
             System.out.println("Stupid, try again");
             counter = counter + 1;
+            if (relates[idStart].length == 0 || relates[idEnd].length == 0) {
+                track = true;
+                System.out.println("Can't do that");
+            }
             if (counter < 60) {
                 send(relates, idStart, idEnd);
             }
-            if (counter >= 60) {
-                System.out.println("Can't do that");
-            }
 
         }
+
     }
 }
