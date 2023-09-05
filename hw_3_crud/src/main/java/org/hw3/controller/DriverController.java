@@ -15,15 +15,12 @@ public class DriverController {
     public void start() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         String position = "";
-        Driver driver = new Driver();
         while ((position) != null) {
-
             menu();
             position = bufferedReader.readLine();
             crud(position, bufferedReader);
         }
     }
-
 
     private void menu() {
         System.out.println();
@@ -61,7 +58,6 @@ public class DriverController {
     }
 
     private void create(BufferedReader reader) throws IOException {
-
         System.out.println("Please enter name");
         String n = reader.readLine();
         System.out.println("Please enter licence category");
@@ -75,7 +71,6 @@ public class DriverController {
             System.out.println("Illegal age input");
             driver.setAge(0);
         }
-
         if (!(n.equalsIgnoreCase("Idiot"))) {
             driver.setName(n);
         } else {
