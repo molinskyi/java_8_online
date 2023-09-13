@@ -14,9 +14,9 @@ public class DriverDb {
 
     public void create(Driver driver) {
         if (lastDriverIndex == drivers.length - 1) {
-            Driver[] newStudents = new Driver[drivers.length * 2];
-            System.arraycopy(drivers, 0, newStudents, 0, drivers.length);
-            drivers = newStudents;
+            Driver[] newDrivers = new Driver[drivers.length * 2];
+            System.arraycopy(drivers, 0, newDrivers, 0, drivers.length);
+            drivers = newDrivers;
             add(driver);
         } else {
             add(driver);
