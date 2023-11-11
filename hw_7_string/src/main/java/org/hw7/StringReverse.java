@@ -1,7 +1,7 @@
 package org.hw7;
 
 public class StringReverse {
-    public static String reverse(String src){
+    public static String reverse(String src) {
         String newSrc = "";
         char[] chars = src.toCharArray();
         for (int i = chars.length - 1; i >= 0; i--) {
@@ -10,7 +10,7 @@ public class StringReverse {
         return newSrc;
     }
 
-    public static String reverse(String src, String dest){
+    public static String reverse(String src, String dest) {
         String newSrc = "";
         int counter = 0;
         int start = src.indexOf(dest);
@@ -18,7 +18,7 @@ public class StringReverse {
         int end = start + dest.length();
         char[] chars = src.toCharArray();
         char[] charsDest = dest.toCharArray();
-        if(start != -1){
+        if (start != -1) {
             for (int i = start; i < end; i++) {
                 chars[i] = charsDest[counter];
                 counter++;
@@ -30,7 +30,7 @@ public class StringReverse {
         return newSrc;
     }
 
-    public static String reverse(String src, int firstIndex, int lastIndex){
+    public static String reverse(String src, int firstIndex, int lastIndex) {
         String newSrc = "";
         int counter = 0;
         int start = firstIndex;
@@ -38,7 +38,7 @@ public class StringReverse {
         String dest = reverse(src.substring(firstIndex, lastIndex));
         char[] chars = src.toCharArray();
         char[] charsDest = dest.toCharArray();
-        if(start != -1){
+        if (start != -1) {
             for (int i = start; i < end; i++) {
                 chars[i] = charsDest[counter];
                 counter++;
@@ -49,5 +49,4 @@ public class StringReverse {
         }
         return newSrc;
     }
-
 }

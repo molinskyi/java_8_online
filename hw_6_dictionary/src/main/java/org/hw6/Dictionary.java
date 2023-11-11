@@ -13,16 +13,16 @@ public class Dictionary<K, V> {
 
     private Dictionary<K, V>[] table;
 
-    public Dictionary(){
+    public Dictionary() {
         table = new Dictionary[capacity];
     }
 
-    public Dictionary(int capacity){
+    public Dictionary(int capacity) {
         this.capacity = capacity;
         table = new Dictionary[capacity];
     }
 
-    public Dictionary(K key, V value, Dictionary<K, V> next){
+    public Dictionary(K key, V value, Dictionary<K, V> next) {
         this.key = key;
         this.value = value;
         this.next = next;
@@ -52,34 +52,34 @@ public class Dictionary<K, V> {
         this.next = next;
     }
 
-    public boolean put(K key, V value){
-        int index = (int)key;
+    public boolean put(K key, V value) {
+        int index = (int) key;
         Dictionary newEntry = new Dictionary(key, value, null);
-        if(table[index] == null){
+        if (table[index] == null) {
             table[index] = newEntry;
-        }else {
+        } else {
             Dictionary<K, V> previousNode = null;
             Dictionary<K, V> currentNode = table[index];
-            while(currentNode != null){
-                if(currentNode.getKey().equals(key)){
+            while (currentNode != null) {
+                if (currentNode.getKey().equals(key)) {
                     currentNode.setValue(value);
                     break;
                 }
                 previousNode = currentNode;
                 currentNode = currentNode.getNext();
             }
-            if(previousNode != null)
+            if (previousNode != null)
                 previousNode.setNext(newEntry);
         }
         return true;
     }
 
-    public V get(K key){
+    public V get(K key) {
         V value = null;
-        int index = (int)key;
+        int index = (int) key;
         Dictionary<K, V> entry = table[index];
-        while (entry != null){
-            if(entry.getKey().equals(key)) {
+        while (entry != null) {
+            if (entry.getKey().equals(key)) {
                 value = entry.getValue();
                 break;
             }
@@ -88,17 +88,17 @@ public class Dictionary<K, V> {
         return value;
     }
 
-    public boolean remove(K key){
-        int index = (int)key;
+    public boolean remove(K key) {
+        int index = (int) key;
         Dictionary previous = null;
         Dictionary entry = table[index];
-        while (entry != null){
-            if(entry.getKey().equals(key)){
-                if(previous == null){
+        while (entry != null) {
+            if (entry.getKey().equals(key)) {
+                if (previous == null) {
                     entry = entry.getNext();
                     table[index] = entry;
                     return true;
-                }else {
+                } else {
                     previous.setNext(entry.getNext());
                     return true;
                 }
@@ -109,61 +109,61 @@ public class Dictionary<K, V> {
         return true;
     }
 
-    int size(){
+    int size() {
         int counter = 0;
         for (int i = 0; i < table.length; i++) {
-            if(table[i] != null){
+            if (table[i] != null) {
                 counter++;
             }
         }
         return counter;
     }
 
-    boolean isEmpty(){
+    boolean isEmpty() {
         boolean isEmpty = false;
         int counter = 0;
         for (int i = 0; i < table.length; i++) {
-            if(table[i] != null){
+            if (table[i] != null) {
                 counter++;
             }
         }
-        if(counter == 0){
+        if (counter == 0) {
             isEmpty = true;
         }
         return isEmpty;
     }
 
-    boolean containsKey(K key){
+    boolean containsKey(K key) {
         boolean containsKey = false;
         for (int i = 0; i < table.length; i++) {
-            if(table[i] != null && table[i].key == key){
+            if (table[i] != null && table[i].key == key) {
                 containsKey = true;
             }
         }
         return containsKey;
     }
 
-    boolean containsValue(V value){
+    boolean containsValue(V value) {
         boolean containsValue = false;
         for (int i = 0; i < table.length; i++) {
-            if(table[i] != null && table[i].value == value){
+            if (table[i] != null && table[i].value == value) {
                 containsValue = true;
             }
         }
         return containsValue;
     }
 
-    boolean putAll(Dictionary<K, V> dictionary){
+    boolean putAll(Dictionary<K, V> dictionary) {
         for (int i = 0; i < dictionary.size(); i++) {
-            if(dictionary.table[i].key != null){
+            if (dictionary.table[i].key != null) {
                 put(dictionary.table[i].key, dictionary.table[i].value);
             }
         }
         return true;
     }
 
-    boolean clear(){
-        if(!isEmpty()){
+    boolean clear() {
+        if (!isEmpty()) {
             for (int i = 0; i < table.length; i++) {
                 table[i] = null;
             }
@@ -171,20 +171,20 @@ public class Dictionary<K, V> {
         return true;
     }
 
-    Set<K> keySet(){
+    Set<K> keySet() {
         Set<K> set = new HashSet<>();
         for (int i = 0; i < table.length; i++) {
-            if(table[i] != null){
+            if (table[i] != null) {
                 set.add(table[i].key);
             }
         }
         return set;
     }
 
-    Collection<V> values(){
+    Collection<V> values() {
         Collection collection = new ArrayList<>();
         for (int i = 0; i < table.length; i++) {
-            if(table[i] != null){
+            if (table[i] != null) {
                 collection.add(table[i].value);
             }
         }
