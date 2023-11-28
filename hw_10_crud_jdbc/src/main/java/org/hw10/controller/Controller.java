@@ -1,5 +1,6 @@
 package org.hw10.controller;
 
+import org.hw10.service.impl.DepartmentCrudServiceImpl;
 import org.hw10.dao.DepartmentDao;
 import org.hw10.dao.EmployeeDao;
 import org.hw10.dao.impl.DepartmentDaoImpl;
@@ -8,7 +9,6 @@ import org.hw10.entity.Department;
 import org.hw10.entity.Employee;
 import org.hw10.service.DepartmentCrudService;
 import org.hw10.service.EmployeeCrudService;
-import org.hw10.service.impl.DepartmentCrudServiceImpl;
 import org.hw10.service.impl.EmployeeCrudServiceImpl;
 
 import java.io.BufferedReader;
@@ -109,6 +109,13 @@ public class Controller {
         Long id = Long.valueOf(reader.readLine());
         System.out.println("Please enter first name");
         String n = reader.readLine();
+        for (Employee e:
+                employeeDao.findAllNoPagination()) {
+            if(departmentCrudService.findOne(String.valueOf(id)).getName().equals(e.getDepartment())){
+                e.setDepartment(n);
+                employeeCrudService.update(e);
+            }
+        }
         Department department = new Department();
         department.setId(id);
         department.setName(n);

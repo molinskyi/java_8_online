@@ -1,9 +1,9 @@
 package org.hw10.dao.impl;
 
-import org.hw10.dao.EmployeeDao;
-import org.hw10.data.PaginationData;
 import org.hw10.entity.Employee;
 import org.hw10.factory.JdbcFactory;
+import org.hw10.dao.EmployeeDao;
+import org.hw10.data.PaginationData;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

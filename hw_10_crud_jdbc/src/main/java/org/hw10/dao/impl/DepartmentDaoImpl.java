@@ -1,10 +1,10 @@
 package org.hw10.dao.impl;
 
-import org.hw10.dao.DepartmentDao;
-import org.hw10.data.PaginationData;
 import org.hw10.dto.DepartmentStatistics;
 import org.hw10.entity.Department;
 import org.hw10.factory.JdbcFactory;
+import org.hw10.dao.DepartmentDao;
+import org.hw10.data.PaginationData;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
